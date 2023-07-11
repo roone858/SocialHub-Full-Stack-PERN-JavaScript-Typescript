@@ -8,17 +8,20 @@ import Friends from "./Pages/Frindes";
 import SignUp from "./Pages/SignUp";
 import Profile from "./Pages/Profile";
 import { fetchPosts } from "./app/slices/post-slice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchLikes } from "./app/slices/like-slice";
 import { fetchUser } from "./app/slices/user-slice";
 import { fetchFriends } from "./app/slices/friend-slice";
+import SignIn from "./Pages/SignIn";
 
 function App() {
-  const dispatch = useDispatch();
-  dispatch(fetchPosts());
-  dispatch(fetchLikes());
-  dispatch(fetchUser());
-  dispatch(fetchFriends());
+  // const dispatch = useDispatch();
+  // const user = useSelector((state: any) => state.user.data);
+  // dispatch(fetchPosts());
+  // dispatch(fetchLikes());
+  // dispatch(fetchUser());
+  // dispatch(fetchFriends());
+  // // if (!user) return <SignIn />;
   return (
     <div className="App ">
       <>

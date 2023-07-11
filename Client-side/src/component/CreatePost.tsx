@@ -22,27 +22,26 @@ import "../style/createPost.css";
 import { Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { addPost } from "../app/slices/post-slice";
+import Posts from "../services/posts.services";
 export default function CreatePost() {
   const [content, setContent] = useState("");
   const posts = useSelector((state: any) => state.posts.data);
   const user = useSelector((state: any) => state.user.data);
   const dispatch = useDispatch();
 
-
-
   const handleTextarea = (e: any) => {
     setContent(e.target.value);
   };
   const handlePostButton = () => {
-
-        dispatch(
-          addPost({
-               post_id: posts.length,
-               content: content,
-               created_at: new Date().toString().slice(0,25),
-               user_id: user.user_id,
-             })
-        );
+    const post = {
+      post_id: posts.length,
+      content: content,
+      created_at: new Date().toString().slice(0, 25),
+      user_id: 4,
+    };
+    const postsServices = new Posts();
+    postsServices.insert(post);
+    dispatch(addPost(post));
   };
   return (
     //     <div className='card '>
